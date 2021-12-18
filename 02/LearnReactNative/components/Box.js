@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-function Box({rounded, size, color}) {
+function Box({rounded, size, color, style}) {
   return (
     <View
       style={[
@@ -11,6 +11,7 @@ function Box({rounded, size, color}) {
         {
           backgroundColor: color,
         },
+        style,
       ]}
     />
   );
