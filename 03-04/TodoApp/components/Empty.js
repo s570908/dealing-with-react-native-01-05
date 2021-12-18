@@ -6,9 +6,8 @@ function Empty() {
   return (
     <View style={styles.block}>
       <Image
-        source={{uri: 'https://via.placeholder.com/150'}}
+        source={require('../assets/images/young_and_happy.png')}
         style={styles.image}
-        resizeMode="stretch"
       />
       <Text style={styles.description}>야호! 할일이 없습니다.</Text>
     </View>
@@ -22,9 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 300,
-    height: 200,
-    backgroundColor: 'gray',
+    width: 240,
+    height: 179,
+    marginBottom: 16,
   },
   description: {
     fontSize: 24,
