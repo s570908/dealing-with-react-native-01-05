@@ -1,38 +1,23 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {View, Text, StyleSheet} from 'react-native';
 
-function DateHead({date}) {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-
-  const {top} = useSafeAreaInsets();
-
+function DateHead() {
   return (
-    <>
-      <View style={[styles.statusBarPlaceholder, {height: top}]} />
-      <StatusBar backgroundColor="#26a69a" barStyle="light-content" />
-      <View style={styles.block}>
-        <Text style={styles.dateText}>
-          {year}년 {month}월 {day}일
-        </Text>
-      </View>
-    </>
+    <View style={styles.block}>
+      <Text style={styles.dateText}>2021년 5월 3일</Text>
+    </View>
   );
 }
 
+// 색상 코드를 정할 때는 Material Color(https://material.io/resources/color)를 주로 참조했습니다.
 const styles = StyleSheet.create({
-  statusBarPlaceholder: {
-    backgroundColor: '#26a69a',
-  },
   block: {
     padding: 16,
-    backgroundColor: '#26a69a',
+    backgroundColor: '#ffc4ff',
   },
   dateText: {
     fontSize: 24,
-    color: 'white',
+    color: 'black',
   },
 });
 
