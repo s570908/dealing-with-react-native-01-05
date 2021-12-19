@@ -11,7 +11,7 @@ import {
   Keyboard,
 } from 'react-native';
 
-function AddTodo() {
+function AddTodo({onInsert}) {
   const [text, setText] = useState('');
 
   const button = (
@@ -21,6 +21,7 @@ function AddTodo() {
   );
 
   const onPress = () => {
+    onInsert(text);
     setText('');
     Keyboard.dismiss();
   };
@@ -49,13 +50,6 @@ function AddTodo() {
           </View>
         ),
       })}
-      {/* {Platform.OS === 'ios' ? (
-        <TouchableOpacity activeOpacity={0.5}>{button}</TouchableOpacity>
-      ) : (
-        <View style={styles.circleWrapper}>
-          <TouchableNativeFeedback>{button}</TouchableNativeFeedback>
-        </View>
-      )} */}
     </View>
   );
 }

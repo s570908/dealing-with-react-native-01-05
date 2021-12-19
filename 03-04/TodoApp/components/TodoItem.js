@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-function TodoItem({id, text, done}) {
+function TodoItem({ id, text, done }) {
   return (
     <View style={styles.item}>
       <View style={[styles.circle, done && styles.filled]}>
