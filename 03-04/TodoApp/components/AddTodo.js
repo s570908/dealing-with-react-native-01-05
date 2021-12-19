@@ -6,6 +6,8 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform,
 } from 'react-native';
 
 function AddTodo() {
@@ -19,11 +21,23 @@ function AddTodo() {
         value={text}
         onChangeText={setText}
       />
-      <TouchableOpacity activeOpacity={0.5}>
-        <View style={styles.buttonStyle}>
-          <Image source={require('../assets/icons/add_white/add_white.png')} />
-        </View>
-      </TouchableOpacity>
+      {Platform.OS === 'ios' ? (
+        <TouchableOpacity activeOpacity={0.5}>
+          <View style={styles.buttonStyle}>
+            <Image
+              source={require('../assets/icons/add_white/add_white.png')}
+            />
+          </View>
+        </TouchableOpacity>
+      ) : (
+        <TouchableNativeFeedback>
+          <View style={styles.buttonStyle}>
+            <Image
+              source={require('../assets/icons/add_white/add_white.png')}
+            />
+          </View>
+        </TouchableNativeFeedback>
+      )}
     </View>
   );
 }
