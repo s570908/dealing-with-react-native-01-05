@@ -33,9 +33,13 @@ function App() {
       <Drawer.Navigator
         initialRouteName="Home"
         drawerPosition="left"
-        backBehavior="history">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Setting" component={SettingScreen} />
+        backBehavior="history"
+        screenOptions={{
+          drawerActiveBackgroundColor: '#fb8c00',
+          drawerActiveTintColor: 'white',
+        }}>
+        <Drawer.Screen name="홈" component={HomeScreen} />
+        <Drawer.Screen name="설정" component={SettingScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
