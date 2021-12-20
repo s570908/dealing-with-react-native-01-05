@@ -18,6 +18,22 @@ function App() {
 
     useEffect(
         ()=>{
+            async function load(){
+                try {
+                    const rawTodos = await AsyncStorage.getItem('todos');
+                    const savedTodos = JSON.parse(rawTodos);
+                    setTodos(savedTodos);
+                } catch(e) {
+                    console.log('Failed to load todos')
+                }
+            };
+            load();
+        },
+        []
+    );
+
+    useEffect(
+        ()=>{
             async function save() {
                 try {
                     await AsyncStorage.setItem('todos', JSON.stringify(todos));
