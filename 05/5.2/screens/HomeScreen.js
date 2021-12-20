@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Button} from 'react-native';
 
 function HomeScreen({navigation}) {
+  useEffect(() => {
+    navigation.setOptions({title: '홈'});
+  }, [navigation]);
   return (
     <View>
       <Button
@@ -21,3 +24,10 @@ function HomeScreen({navigation}) {
 }
 
 export default HomeScreen;
+
+// route라는 Props
+// {
+//   "key": "Detail-vgDx8-H-8e7oao6a3xJz7",
+//   "name": "Detail",
+//   "params": {"id": 1}
+// }
