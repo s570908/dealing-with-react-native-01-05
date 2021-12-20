@@ -6,7 +6,7 @@ import AddTodo from "./components/AddTodo";
 import Empty from "./components/Empty";
 import { useState } from "react";
 import TodoList from "./components/TodoList";
-import AsyncStorage from "@react-native-community/async-storage";
+import todosStorage from "./storages/todosStorage";
 
 function App() {
     const today = new Date();
@@ -18,32 +18,36 @@ function App() {
 
     useEffect(
         ()=>{
-            async function load(){
-                try {
-                    const rawTodos = await AsyncStorage.getItem('todos');
-                    const savedTodos = JSON.parse(rawTodos);
-                    setTodos(savedTodos);
-                } catch(e) {
-                    console.log('Failed to load todos')
-                }
-            };
-            load();
+            // async function load(){
+            //     try {
+            //         const rawTodos = await AsyncStorage.getItem('todos');
+            //         const savedTodos = JSON.parse(rawTodos);
+            //         setTodos(savedTodos);
+            //     } catch(e) {
+            //         console.log('Failed to load todos')
+            //     }
+            // };
+            // load();
+            todosStorage.get().then((todos)=>{
+                setTodos(todos);
+            }).catch((e)=>{console.error(e)})
         },
         []
     );
 
     useEffect(
         ()=>{
-            async function save() {
-                try {
-                    await AsyncStorage.setItem('todos', JSON.stringify(todos));
-                    // const savedTodos = await AsyncStorage.getItem('todos');
-                    // console.log('Saved todos: ', savedTodos);
-                } catch(e) {
-                    console.log('Failed to save todos')
-                }
-            }
-            save();
+            // async function save() {
+            //     try {
+            //         await AsyncStorage.setItem('todos', JSON.stringify(todos));
+            //         // const savedTodos = await AsyncStorage.getItem('todos');
+            //         // console.log('Saved todos: ', savedTodos);
+            //     } catch(e) {
+            //         console.log('Failed to save todos')
+            //     }
+            // }
+            // save();
+            todosStorage.set(todos).catch((e)=>console.error(e));
         }, [todos]
     );
   
