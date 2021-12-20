@@ -44,7 +44,11 @@ function App() {
             />
           </SafeAreaView>
         )}>
-        <Drawer.Screen name="홈" component={HomeScreen} />
+        <Drawer.Screen
+          name="홈"
+          component={HomeScreen}
+          options={{title: '홈', headerLeft: () => <Text>Left</Text>}}
+        />
         <Drawer.Screen name="설정" component={SettingScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
