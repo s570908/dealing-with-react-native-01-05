@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import DateHead from "./components/DateHead";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -14,6 +14,12 @@ function App() {
       {id: 2, text: '리액트 네이티브 기초 공부', done: false},
       {id: 3, text: '투두리스트 만들어보기', done: false},
     ]);
+
+    useEffect(
+        ()=>{
+            console.log(todos);
+        }, [todos]
+    );
   
     const onInsert = text => {
       // 새로 등록할 항목의 id를 구합니다.
