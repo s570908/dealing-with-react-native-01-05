@@ -6,6 +6,7 @@ import AddTodo from "./components/AddTodo";
 import Empty from "./components/Empty";
 import { useState } from "react";
 import TodoList from "./components/TodoList";
+import AsyncStorage from "@react-native-community/async-storage";
 
 function App() {
     const today = new Date();
@@ -17,7 +18,16 @@ function App() {
 
     useEffect(
         ()=>{
-            console.log(todos);
+            async function save() {
+                try {
+                    await AsyncStorage.setItem('todos', JSON.stringify(todos));
+                    // const savedTodos = await AsyncStorage.getItem('todos');
+                    // console.log('Saved todos: ', savedTodos);
+                } catch(e) {
+                    console.log('Failed to save todos')
+                }
+            }
+            save();
         }, [todos]
     );
   
