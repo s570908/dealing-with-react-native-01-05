@@ -18,16 +18,6 @@ function App() {
 
     useEffect(
         ()=>{
-            // async function load(){
-            //     try {
-            //         const rawTodos = await AsyncStorage.getItem('todos');
-            //         const savedTodos = JSON.parse(rawTodos);
-            //         setTodos(savedTodos);
-            //     } catch(e) {
-            //         console.log('Failed to load todos')
-            //     }
-            // };
-            // load();
             todosStorage.get().then((todos)=>{
                 setTodos(todos);
             }).catch((e)=>{console.error(e)})
@@ -37,16 +27,6 @@ function App() {
 
     useEffect(
         ()=>{
-            // async function save() {
-            //     try {
-            //         await AsyncStorage.setItem('todos', JSON.stringify(todos));
-            //         // const savedTodos = await AsyncStorage.getItem('todos');
-            //         // console.log('Saved todos: ', savedTodos);
-            //     } catch(e) {
-            //         console.log('Failed to save todos')
-            //     }
-            // }
-            // save();
             todosStorage.set(todos).catch((e)=>console.error(e));
         }, [todos]
     );
