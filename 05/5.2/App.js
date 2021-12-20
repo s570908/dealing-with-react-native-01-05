@@ -33,6 +33,7 @@ function App() {
           name="Detail"
           component={DetailScreen}
           options={{
+            headerBackVisible: false,
             headerLeft: ({onPress}) => (
               <TouchableOpacity onPress={onPress}>
                 <Text>Left</Text>
