@@ -20,9 +20,7 @@ function App() {
         <Stack.Screen
           name="Detail"
           component={DetailScreen}
-          options={({route}) => {
-            return {title: `상세 정보: ${route.params.id}`};
-          }}
+          options={({route}) => ({title: `상세 정보: ${route.params.id}`})}
         />
       </Stack.Navigator>
     </NavigationContainer>
