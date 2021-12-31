@@ -6,7 +6,7 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 //import MainScreen from './screens/MainScreen';
 import DetailScreen from './screens/DetailScreen';
-import HomeScreen from './screens/HomeScreen';
+import MainScreen from './screens/MainScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +28,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Main"
-          component={HomeScreen}
+          component={MainScreen}
           options={({route}) => ({
             title: getHeaderTitle(route),
           })}

@@ -30,10 +30,13 @@
 
 // export default HomeScreen;
 
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Button, Text} from 'react-native';
 
-function OpenDetailButton({navigation}) {
+function OpenDetailButton() {
+  const navigation = useNavigation();
+
   return (
     <Button
       title="Detail 1 열기"
@@ -42,11 +45,11 @@ function OpenDetailButton({navigation}) {
   );
 }
 
-function HomeScreen({navigation}) {
+function HomeScreen() {
   return (
     <View>
       <Text>Home</Text>
-      <OpenDetailButton navigation={navigation} />
+      <OpenDetailButton />
     </View>
   );
 }

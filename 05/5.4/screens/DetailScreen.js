@@ -9,6 +9,12 @@ function IDText() {
 
 function DetailScreen({route, navigation}) {
   useEffect(() => {
+    console.log('DetailScreen mounted');
+    return () => {
+      console.log('DetailScreen unmounted');
+    };
+  }, []);
+  useEffect(() => {
     navigation.setOptions({
       title: `상세 정보 - ${route.params.id}`,
     });
