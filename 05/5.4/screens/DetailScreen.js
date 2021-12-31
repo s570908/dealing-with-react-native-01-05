@@ -9,11 +9,11 @@ function IDText() {
 
 function DetailScreen({route, navigation}) {
   useEffect(() => {
-    console.log('DetailScreen mounted');
+    console.log(`DetailScreen id: ${route.params.id} mounted`);
     return () => {
-      console.log('DetailScreen unmounted');
+      console.log(`DetailScreen id: ${route.params.id} unmounted`);
     };
-  }, []);
+  }, [route.params.id]);
   useEffect(() => {
     navigation.setOptions({
       title: `상세 정보 - ${route.params.id}`,

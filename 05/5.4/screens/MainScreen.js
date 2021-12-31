@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {Text, View, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -24,6 +24,15 @@ function HomeScreen() {
       console.log('HomeScreen unmounted');
     };
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      console.log('HomeScreen으로 돌아 왔어요. 이 화면을 보고 있어요.');
+      return () => {
+        console.log('HomeScreen에서 다른 화면으로 넘어갔어요.');
+      };
+    }, []),
+  );
 
   return (
     <View>
