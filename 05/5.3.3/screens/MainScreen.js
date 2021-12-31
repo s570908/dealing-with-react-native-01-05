@@ -50,6 +50,7 @@ function MainScreen() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
+        tabBarShowLabel: false,
         tabBarIndicatorStyle: {
           backgroundColor: '#009688',
         },
@@ -60,7 +61,9 @@ function MainScreen() {
         component={HomeScreen}
         options={{
           tabBarLabel: '홈',
-          tabBarIcon: ({color}) => <Icon name="home" color={color} size={24} />,
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" color={color} size={24} />
+          ),
         }}
       />
       <Tab.Screen
@@ -68,7 +71,7 @@ function MainScreen() {
         component={SearchScreen}
         options={{
           tabBarLabel: '검색',
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({color, size}) => (
             <Icon name="search" color={color} size={24} />
           ),
         }}
@@ -78,7 +81,7 @@ function MainScreen() {
         component={NotificationScreen}
         options={{
           tabBarLabel: '알림',
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({color, size}) => (
             <Icon name="notifications" color={color} size={24} />
           ),
         }}
@@ -88,7 +91,7 @@ function MainScreen() {
         component={MessageScreen}
         options={{
           tabBarLabel: '메시지',
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({color, size}) => (
             <Icon name="message" color={color} size={24} />
           ),
         }}
