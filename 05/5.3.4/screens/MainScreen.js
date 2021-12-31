@@ -47,7 +47,11 @@ function MessageScreen() {
 
 function MainScreen() {
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator
+      initialRouteName="Home"
+      tabBarOptions={{
+        showIcon: true,
+      }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
