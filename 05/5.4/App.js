@@ -4,8 +4,9 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MainScreen from './screens/MainScreen';
+//import MainScreen from './screens/MainScreen';
 import DetailScreen from './screens/DetailScreen';
+import HomeScreen from './screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Main"
-          component={MainScreen}
+          component={HomeScreen}
           options={({route}) => ({
             title: getHeaderTitle(route),
           })}

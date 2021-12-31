@@ -10,7 +10,7 @@ function IDText() {
 function DetailScreen({route, navigation}) {
   useEffect(() => {
     navigation.setOptions({
-      title: '상세 정보 - ${route.params.id}',
+      title: `상세 정보 - ${route.params.id}`,
     });
   }, [navigation, route.params.id]);
 
