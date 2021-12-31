@@ -30,6 +30,9 @@ function App() {
         screenOptions={{
           tabBarActiveTintColor: '#fb8c00',
           tabBarShowLabel: false,
+          tabBarActiveBackgroundColor: 'white',
+          tabBarInactiveTintColor: 'blue',
+          tabBarInactiveBackgroundColor: 'gray',
         }}>
         <Tab.Screen
           name="Home"
