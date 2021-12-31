@@ -10,6 +10,11 @@ import DetailScreen from './screens/DetailScreen';
 const Stack = createNativeStackNavigator();
 
 function getHeaderTitle(route) {
+  console.log('route: ', route);
+  console.log(
+    'getFocusedRouteNameFromRoute(route): ',
+    getFocusedRouteNameFromRoute(route),
+  );
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
   const nameMap = {
     Home: '홈',
@@ -32,7 +37,13 @@ function App() {
             title: getHeaderTitle(route),
           })}
         />
-        <Stack.Screen name="Detail" component={DetailScreen} />
+        <Stack.Screen
+          name="Detail"
+          component={DetailScreen}
+          options={({route}) => ({
+            title: getHeaderTitle(route),
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
