@@ -35,6 +35,9 @@ function App() {
         initialRouteName="Home"
         drawerPosition="left"
         backBehavior="history"
+        screenOptions={{
+          headerShown: false,
+        }}
         drawerContent={({navigation}) => (
           <SafeAreaView>
             <Text>A Custom Drawer</Text>
